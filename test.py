@@ -1,7 +1,12 @@
 #-*- coding: latin-1 -*-
 
-from pyqtform import Form
-from PyQt4.QtGui import QApplication
+try:
+    from pyqtform import Form
+    from PyQt4.QtGui import QApplication
+except ImportError:
+    print "Cannot initialize app, some libraries are requires"
+    exit()
+
 import sys
 
 
