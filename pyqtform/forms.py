@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 from PyQt4.QtGui import QMainWindow, \
-    QWidget, QApplication
+    QWidget, QApplication, QLineEdit
 
 """
 class parent for main form with center widget
@@ -29,6 +29,14 @@ class Form(QMainWindow):
         self.h = (self.height() - self.height_container) / 2
         self.form_container.setGeometry(self.w, self.h, self.width_container, self.height_container)
         self.form_container.setObjectName(id_name)
+    
+    def add_input_field(self, name_field):
+        self.input_field = QLineEdit(self.form_container)
+        self.spaces_between_fields = 40
+        self.init_x, self.init_y = self.spaces_between_fields / 2, 20
+        self.width_field, self.height_field = self.width_container, 40
+        self.input_field.setGeometry(self.init_x, self.init_y, self.width_field, self.height_field)
+        self.input_field.setPlaceholderText(name_field)
 
     def center_widget_form(self):
         self.width_center_form = (self.width() - (self.width_container * 2)) / 2

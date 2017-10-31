@@ -5,4 +5,5 @@ try:
         from .forms import Form
         from .create_app import create_app
 except ImportError:
-	print "Unable found PyQt4, try install it and run again."
+    print "PyQt4 Framework is not found, try install it. \n\n\nOn Linux (debian distribution). \nOpen your terminal anf type 'sudo apt-get install python-qt4' \n\n\nOn windows: \nDepending on your Windows Platform (x86/x64), download a wheel file from https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4 and install with pip. \nExample: pip install PyQt4‑4.11.4‑cp27‑cp27m‑win_amd64.whl ."
+    exit()
