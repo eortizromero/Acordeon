@@ -6,6 +6,6 @@ __VERSION__ = '0.1'
 
 setup(
 	name='PyQtForm',
-	packages=['pyqtform'],
+	packages=['coralillo'],
 	version=__VERSION__
 )

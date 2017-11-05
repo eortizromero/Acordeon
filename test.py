@@ -1,6 +1,8 @@
-#-*- coding: latin-1 -*-
+# -*- coding: latin-1 -*-
 
-from pyqtform import create_app
+from coralillo import App
+
+app = App('Sistema de Ventas')
 
 if __name__ == '__main__':
-    create_app()
+    app.run()

@@ -3,16 +3,15 @@
 from PyQt4.QtGui import QMainWindow, \
     QWidget, QApplication, QLineEdit
 
-"""
-class parent for main form with center widget
-
-"""
 
 class Form(QMainWindow):
-    def __init__(self, width, height, title):
+    def __init__(self, width, height, title, width_fixed):
         super(Form, self).__init__()
         self.width_container, self.height_container = width / 2, height
         self.setMinimumSize(width, height)
+        print width_fixed
+        if width_fixed:
+            self.setMaximumSize(width, height)
         self.setWindowTitle(title)
         # self.center_main_window()
 
