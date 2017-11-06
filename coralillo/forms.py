@@ -9,7 +9,6 @@ class Form(QMainWindow):
         super(Form, self).__init__()
         self.width_container, self.height_container = width / 2, height
         self.setMinimumSize(width, height)
-        print width_fixed
         if width_fixed:
             self.setMaximumSize(width, height)
         self.setWindowTitle(title)
