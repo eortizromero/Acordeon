@@ -17,6 +17,7 @@ def _get_default_name():
 def _get_default_css():
     css = """
     #main_window{background: #FFF;}
+    QLineEdit{border:1px solid #AAA;padding:2px 5px; font-size:12px; border-radius:2px;}
     """
     return css
 
@@ -37,6 +38,16 @@ class App(object):
                 self.name = _get_default_name()
         self.form = Form(title=self.name)
 
+    def login(self, field=None, password=None):
+        if field is None:
+            field = "Username"
+        if password is None:
+            password = "Password"
+        self.form.create_form_gui('main_window')
+        self.form.add_input_field(field, 50, 220, 300, 40)
+        self.form.add_password_field(password, 50, 280, 300, 40)
+        self.form.show()
+
     def create_app(self, app, width, height, width_fix, with_css, is_form):
         self.width_form = width
         self.height_form = height
@@ -54,7 +65,6 @@ class App(object):
                     app.setStyleSheet(def_css)
             else:
                 app.setStyleSheet(def_css)
-            self.form.show()
             sys.exit(app.exec_())
 
     def run(self,

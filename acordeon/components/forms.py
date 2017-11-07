@@ -40,6 +40,15 @@ class Form(QMainWindow):
         self.input_field.setGeometry(init_x, init_y, self.width_field, self.height_field)
         self.input_field.setPlaceholderText(name_field)
 
+    def add_password_field(self, name_field, init_x, init_y, width_field, height_field):
+        self.password_field = QLineEdit(self.form_container)
+        self.password_field.setEchoMode(QLineEdit.Password)
+        self.spaces_between_fields = 40
+        self.init_x, self.init_y = self.spaces_between_fields / 2, 20
+        self.width_field, self.height_field = width_field, height_field
+        self.password_field.setGeometry(init_x, init_y, self.width_field, self.height_field)
+        self.password_field.setPlaceholderText(name_field)
+
     def center_widget_form(self):
         self.width_center_form = (self.width() - (self.width_container * 2)) / 2
         self.height_center_form = (self.height() - self.height_container) / 2
