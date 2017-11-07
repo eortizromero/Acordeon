@@ -23,20 +23,19 @@ def _get_default_css():
 
 
 class App(object):
-    def __init__(self, name=None, type=None):
+    def __init__(self, name=None, type=None, width_fix=False):
         self.with_css = False
         self.type = type
         self.app = QApplication(sys.argv)
         self.width_form = 0
         self.height_form = 0
-        self.width_fixed = False
         self.name = name
         if type is None:
             self.type = 'form'
         if name is None:
             if self.name == '':
                 self.name = _get_default_name()
-        self.form = Form(title=self.name)
+        self.form = Form(title=self.name, width_fixed=width_fix)
 
     def login(self, field=None, password=None):
         if field is None:
@@ -48,10 +47,9 @@ class App(object):
         self.form.add_password_field(password, 50, 280, 300, 40)
         self.form.show()
 
-    def create_app(self, app, width, height, width_fix, with_css, is_form):
+    def create_app(self, app, width, height, with_css, is_form):
         self.width_form = width
         self.height_form = height
-        self.width_fixed = width_fix
         if is_form:
             css_path = _get_static_file()
             def_css = _get_default_css()
@@ -70,23 +68,20 @@ class App(object):
     def run(self,
             width=None,
             height=None,
-            width_fixed=False,
             load_css=False):
-        width_app, height_app, width_fixed_app = 400, 600, False
+        width_app, height_app = 400, 600
         if width is not None:
             width_app = width
         if height is not None:
             height_app = height
-        if width_fixed is not False:
-            width_fixed_app = width_fixed
         if load_css:
             self.with_css = load_css
         app = self.app
         if self.type == 'form':
             is_form = True
-            self.create_app(app, width_app, height_app, width_fixed_app, load_css, is_form)
+            self.create_app(app, width_app, height_app, load_css, is_form)
         else:
             is_form = False
-            self.create_app(app, width_app, height_app, width_fixed_app, load_css, is_form)
+            self.create_app(app, width_app, height_app, load_css, is_form)
 
 
