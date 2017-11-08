@@ -37,15 +37,22 @@ class App(object):
                 self.name = _get_default_name()
         self.form = Form(title=self.name, width_fixed=width_fix)
 
-    def login(self, field=None, password=None):
+    def login(self, field=None, password=None, submit_text_value=None):
         if field is None:
             field = "Username"
         if password is None:
             password = "Password"
+        if submit_text_value is None:
+            submit_text_value = "Log In"
         self.form.create_form_gui('main_window')
         self.form.add_input_field(field, 50, 220, 300, 40)
         self.form.add_password_field(password, 50, 280, 300, 40)
+        self.form.add_submit(submit_text_value, 120, 340, 150, 40)
         self.form.show()
+
+    def register(self, *args):
+
+        pass
 
     def create_app(self, app, width, height, with_css, is_form):
         self.width_form = width

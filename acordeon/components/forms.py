@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 from PyQt4.QtGui import QMainWindow, \
-    QWidget, QApplication, QLineEdit
+    QWidget, QApplication, QLineEdit, QPushButton
 
 
 class Form(QMainWindow):
@@ -48,6 +48,11 @@ class Form(QMainWindow):
         self.width_field, self.height_field = width_field, height_field
         self.password_field.setGeometry(init_x, init_y, self.width_field, self.height_field)
         self.password_field.setPlaceholderText(name_field)
+
+    def add_submit(self, name_field, pos_x, pos_y, width, height):
+        self.button_submit = QPushButton(self.form_container)
+        self.button_submit.setGeometry(pos_x, pos_y, width, height)
+        self.button_submit.setText(name_field)
 
     def center_widget_form(self):
         self.width_center_form = (self.width() - (self.width_container * 2)) / 2
